@@ -6,7 +6,9 @@ const cors = require("cors");
 db();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: process.env.CORS_VARS.split(", ") }));
+
+// app.use(cors());
 // app.use(express.static(__dirname + "/uploads"));
 
 app.use(express.static(`${__dirname}`));
